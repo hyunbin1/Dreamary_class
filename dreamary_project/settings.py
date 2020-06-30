@@ -119,3 +119,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+ 
+# static 파일들을  어디서  모아오는 역할을 함
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'page', 'static')
+]
+
+#이렇게 모은 스테틱 파일들을 어디에 둘지를 말해주는 것
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+MIDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+MEDIA_URL = '/media/' 
