@@ -113,6 +113,11 @@
                             <h6 class="card-title">{{ designer.address }} </h6>
                             <hr>
                             <p class="card-text">{{ designer.description }}</p>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <div class="btn-group">
+                                    <a href="{% url 'detail' designer.id %}" class= "btn btn-sm btn-outline-secondary">자세히 알아보기</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                     {% endfor %}
