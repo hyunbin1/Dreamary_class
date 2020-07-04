@@ -6,7 +6,7 @@ def home(request):
     return render(request, 'home.html', {'designers' : designers})
 
 def introduce(request):
-    return render(requset, 'introduce.html')
+    return render(request, 'introduce.html')
 
 def detail(request, designer_id):
     designer = get_object_or_404(Designer, pk = designer_id)
