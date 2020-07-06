@@ -1,0 +1,41 @@
+django 6강: 템플릿 상속
+1. base.html = 공통적으로 사용해야되는 부분을 만들어서 사용함. = 뼈대가 되는 부분 - 다른 페이지에서 extends로 불러오기
+
+2. 다른 페이지로 들어올 부분들은 
+{% block link%}
+
+{% endblock%}
+
+3. home.html 등 다른 html 내용을 짤 때는 중복된 것은 다 삭제하고 
+{%block content%}
+{%endblock%}
+사용
+
+
+
+7강 : CRUD
+CREATE : 새로운 객체를 생성해 data를 저장함
+1) 객체 생성 if request.method == 'POST':
+ post = Designer()
+2) 입력 data 저장 
+post.name = request.POST['name']
+post.address = request.POST['address']
+post.save()
+
+READ : 
+UPDATE
+DELETE
+-----
+
+GET/POST
+1) GET : 
+Data를 "URL"에 포함시켜 전송
+존성하는 길이 제약 ㅇ
+caching 가능(REST에서 데이터 조회에 활용) -> READ에서 활용
+
+2)POST
+Data를 "BODY"에 넣어 전송(URL에서 노출 X)
+전송하는 길이에 제약 X
+Caching 불가능( REST에서 데이터 생성에 활용)-> CREATE / UPDATE 에서 활용
+
+--- KEYWORD = HTTP METHOD/ RESTful
