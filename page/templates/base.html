@@ -74,11 +74,17 @@
     <header>
         <div id="navbar" class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <a id="logo" href="{% url 'home'%}" class="navbar-brand align-self-center">
-    <img src="{% static 'images/드리머리 로고.png' %}" width="35" height="35" alt="드리머리로고.png">
-    <label class="navbar-brand align-self-center">Dreamary</label>
-    </a>
-    </div>
-    </header>
+                <img src="{% static 'images/드리머리 로고.png' %}" width="35" height="35" alt="드리머리로고.png">
+                <label class="navbar-brand align-self-center">Dreamary</label>
+            </a>
+            <!--로고 옆 버튼 생성-->
+            <div class = "collapse navbar-collapse">
+                <div class="navbar-nav">
+                    <a class = "nav-item nav-link" herf="{% url 'new' %}">디자이너 등록하기</a>
+                </div>
+            </div>
+            </div>
+        </header>
 
     <!-- Main content -->
     <main role="main">

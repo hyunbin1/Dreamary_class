@@ -11,3 +11,6 @@ def introduce(request):
 def detail(request, designer_id):
     designer = get_object_or_404(Designer, pk = designer_id)
     return render(request, 'detail.html', {'designer' : designer})
+
+def new(request):
+    return render(request, 'new.html')

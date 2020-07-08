@@ -1,0 +1,17 @@
+#navbar{
+    display: flex;
+    justify-content : space-between;
+}
+
+#logo{
+    display: flex;
+}
+
+label{
+    margin-bottom: 0rem;
+    font-size : 25px;
+}
+
+footer{
+    padding-top: 1.5rem;
+}
