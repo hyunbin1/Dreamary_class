@@ -15,7 +15,7 @@
         <hr class="mb-4">
 
         <!-- Creat Form -->
-        <form action="" method="POST" enctype="multipart/form-data">
+        <form action="{% url 'creat' %}" method="POST" enctype="multipart/form-data">
             {% csrf_token %}
             <div class="mb-3">
                 <label for="inputFile">등록하시는 분을 대표할 수 있는 이미지를 등록해 주세요</label>

@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, redirect , get_object_or_404
 from .models import Designer
 # Create your views here.
 def home(request):
@@ -14,3 +14,25 @@ def detail(request, designer_id):
 
 def new(request):
     return render(request, 'new.html')
+
+def creat(request):
+    if request.method == 'POST':
+        post = Designer()
+
+        if 'image' in request.FILES:
+            post.image = request.FILES['image']
+        post.name = request.POST['name']
+        post.adress = request.POST['address']
+        post.description = request.POST['description']
+
+        post.save()
+        # redirect는 import를 해줘야 사용가능함
+        return redirect('detail', post.id)
+       # render = 무언가를 요청과 함께 값을 반환해주고 넘겨줌
+       # redirect =  뒤 주소로 이동함 
+def delete(request, designer_id):
+    # 객체 탐색
+    post = get_object_or_404(Designer, pk = designer_id)
+    post.delete()
+    
+    return redirect('home')
