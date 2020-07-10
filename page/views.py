@@ -39,3 +39,15 @@ def delete(request, designer_id):
 
 def update(request, designer_id):
     post = get_object_or_404(Designer, pk = designer_id)
+
+    if request.method == 'POST':
+        if 'image' in request.FILES:
+                post.image = request.FILES['image']
+            post.name = request.POST['name']
+            post.adress = request.POST['address']
+            post.description = request.POST['description']
+
+            post.save()
+    # 우리가 사용하는 method는 post or get이기 때문에 else에 사용되는 method는 get이다.                
+    else:
+        return render(request, 'update.html', {'designer' : post})
