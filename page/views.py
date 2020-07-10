@@ -22,7 +22,7 @@ def creat(request):
         if 'image' in request.FILES:
             post.image = request.FILES['image']
         post.name = request.POST['name']
-        post.adress = request.POST['address']
+        post.address = request.POST['address']
         post.description = request.POST['description']
 
         post.save()
@@ -30,6 +30,7 @@ def creat(request):
         return redirect('detail', post.id)
        # render = 무언가를 요청과 함께 값을 반환해주고 넘겨줌
        # redirect =  뒤 주소로 이동함 
+
 def delete(request, designer_id):
     # 객체 탐색
     post = get_object_or_404(Designer, pk = designer_id)
@@ -42,12 +43,14 @@ def update(request, designer_id):
 
     if request.method == 'POST':
         if 'image' in request.FILES:
-                post.image = request.FILES['image']
-            post.name = request.POST['name']
-            post.adress = request.POST['address']
-            post.description = request.POST['description']
+            post.image = request.FILES['image']
+        post.name = request.POST['name']
+        post.address = request.POST['address']
+        post.description = request.POST['description']
 
-            post.save()
+        post.save()
+
+        return redirect('detail', post.id)
     # 우리가 사용하는 method는 post or get이기 때문에 else에 사용되는 method는 get이다.                
     else:
         return render(request, 'update.html', {'designer' : post})
